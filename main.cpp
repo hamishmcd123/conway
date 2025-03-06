@@ -38,7 +38,9 @@ while(!WindowShouldClose()) {
     drawCells(cellVec);
     cursor.updateCursorPosition();
     cursor.drawCursor();
-    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON) && currentState == gameStates::EDIT) {
+    if (IsMouseButtonDown(MOUSE_LEFT_BUTTON) && currentState == gameStates::EDIT && 
+        (cursor.truePos.x > 0 && cursor.truePos.x < CELLCOLS * CELL_SIZE) &&
+        (cursor.truePos.y > 0 && cursor.truePos.y < CELLROWS * CELL_SIZE)) {
         cursor.updateCell(cellVec);
     }
     if (IsKeyPressed(KEY_G)) {
